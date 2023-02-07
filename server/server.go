@@ -1,6 +1,8 @@
 package server
 
 import (
+	"os"
+
 	"github.com/labstack/echo"
 	"github.com/urfave/cli/v2"
 )
@@ -12,7 +14,11 @@ var ServerCommand = &cli.Command{
 	Action: func(c *cli.Context) error {
 		bind := c.Args().First()
 		if bind == "" {
-			bind = ":8080"
+			if os.Getenv("SNIPPY_BIND") != "" {
+				bind = os.Getenv("SNIPPY_BIND")
+			} else {
+				bind = ":8080"
+			}
 		}
 
 		return start(bind)
