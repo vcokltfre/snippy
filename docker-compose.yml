@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  snippy:
+    build: .
+    ports:
+      - "8080:8080"
+    restart: always
+    volumes:
+      - ./data:/var/data
+    environment:
+      - SNIPPY_BIND=:8080
+      - SNIPPY_DB=/var/data/snippet.db
+    env_file: .env

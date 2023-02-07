@@ -1,0 +1,7 @@
+*
+
+!server/
+!client/
+!go.mod
+!go.sum
+!main.go
