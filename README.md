@@ -56,3 +56,7 @@ You will need a `.env` file in the root of the project with the following variab
 SNIPPY_URL=https://snippy.my.domain
 SNIPPY_AUTH=my-auth-token
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
