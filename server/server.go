@@ -31,5 +31,17 @@ func start(bind string) error {
 	e.HideBanner = true
 	e.HidePort = true
 
+	e.GET("/", func(c echo.Context) error {
+		return c.HTML(200, RenderIndex())
+	})
+
+	e.GET("/snippets/:id", func(c echo.Context) error {
+		return c.HTML(200, RenderSnippet("go", "func main() {}", c.Param("id")))
+	})
+
+	e.GET("/snippets/:id/raw", func(c echo.Context) error {
+		return c.String(200, "func main() {}")
+	})
+
 	return e.Start(bind)
 }

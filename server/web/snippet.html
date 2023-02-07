@@ -1,0 +1,48 @@
+<style>
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .buttons button {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #0d1117;
+    color: #f6f6f6;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  async function getContent() {
+    const response = await fetch(window.location.href + "/raw");
+    const content = await response.text();
+    return content;
+  }
+
+  async function copy() {
+    navigator.clipboard.writeText(await getContent());
+  }
+
+  function curl() {
+    const id = {{ .ID }};
+    const url = new URL(window.location.href);
+    const host = url.host;
+    const protocol = url.protocol;
+    const command = `curl -o ${id} ${protocol}\/\/${host}\/snippets\/${id}\/raw`;
+    navigator.clipboard.writeText(command);
+  }
+</script>
+
+<div class="buttons">
+  <button onclick="copy()">Copy</button>
+  <button onclick="curl()">Copy cURL</button>
+</div>
+
+<pre
+  class="code"
+><code class="language-{{ .Language }}">{{ .Content }}</code></pre>

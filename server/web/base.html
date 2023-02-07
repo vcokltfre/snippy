@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"
+      integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <title>{{ .Title }} - Snippy</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+
+      :root,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: "Source Sans Pro", sans-serif;
+        background-color: #1c1f24;
+        color: #f6f6f6;
+      }
+
+      nav {
+        height: 3rem;
+        background-color: #0d1117;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 20%;
+      }
+
+      .github {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      .flex-grow {
+        flex-grow: 1;
+      }
+
+      a,
+      a:visited,
+      a:hover {
+        color: #f6f6f6;
+        text-decoration: none;
+      }
+
+      main {
+        padding: 0 20%;
+        margin-top: 1rem;
+      }
+
+      code {
+        border-radius: 0.5rem;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h1>Snippy</h1>
+      <div class="flex-grow"></div>
+      <a href="https://github.com/vcokltfre/snippy">GitHub</a>
+    </nav>
+    <main>{{ .Content }}</main>
+  </body>
+  <script>
+    hljs.highlightAll();
+  </script>
+</html>
