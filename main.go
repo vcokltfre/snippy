@@ -5,12 +5,15 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/urfave/cli/v2"
+	"github.com/vcokltfre/snippy/server"
 )
 
 var app = &cli.App{
-	Name:     "snippy",
-	Usage:    "A simple way to store and manage snippets of code",
-	Commands: []*cli.Command{},
+	Name:  "snippy",
+	Usage: "A simple way to store and manage snippets of code",
+	Commands: []*cli.Command{
+		server.ServerCommand,
+	},
 }
 
 func init() {
