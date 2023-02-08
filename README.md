@@ -7,19 +7,13 @@ A simple way to store and manage snippets of code.
 To initialise snippy:
 
 ```bash
-snippy init --url "https://snippy.my.domain" --auth "my-auth-token"
+snippy init "https://snippy.my.domain" "my-auth-token"
 ```
 
 To upload a snippet:
 
 ```bash
 snippy upload example-id example-file.go
-```
-
-To upload a private snippet:
-
-```bash
-snippy upload -p example-id example-file.go
 ```
 
 To delete a snippet:

@@ -5,6 +5,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/urfave/cli/v2"
+	"github.com/vcokltfre/snippy/client"
 	"github.com/vcokltfre/snippy/server"
 )
 
@@ -13,6 +14,10 @@ var app = &cli.App{
 	Usage: "A simple way to store and manage snippets of code",
 	Commands: []*cli.Command{
 		server.ServerCommand,
+		client.Init,
+		client.Upload,
+		client.Download,
+		client.Delete,
 	},
 }
 
