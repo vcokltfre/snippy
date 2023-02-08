@@ -47,7 +47,6 @@ docker-compose up -d
 You will need a `.env` file in the root of the project with the following variables:
 
 ```bash
-SNIPPY_URL=https://snippy.my.domain
 SNIPPY_AUTH=my-auth-token
 ```
 
