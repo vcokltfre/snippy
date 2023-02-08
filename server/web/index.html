@@ -1,0 +1,20 @@
+<style>
+  h2 {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .snippet {
+    margin-top: 1rem;
+  }
+</style>
+
+{{range $i, $s := .}}
+<a href="/snippets/{{$s.ID}}">
+  <div class="snippet">
+    <h2>{{ $s.ID }}</h2>
+    <pre><code class="language-{{$s.Language}}">{{$s.Content}}</code></pre>
+  </div>
+</a>
+{{end}}

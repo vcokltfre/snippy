@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"embed"
 	"html/template"
+
+	"github.com/vcokltfre/snippy/server/database"
 )
 
 type basePage struct {
@@ -35,9 +37,13 @@ func renderBase(title, content string) string {
 	return buf.String()
 }
 
-func RenderIndex() string {
+func RenderIndex(snippets []database.Snippet) string {
+	for i := 0; i < len(snippets); i++ {
+		snippets[i].Content = Shorten(snippets[i].Content)
+	}
+
 	var buf bytes.Buffer
-	index.Execute(&buf, nil)
+	index.Execute(&buf, snippets)
 	return renderBase("Home", buf.String())
 }
 
