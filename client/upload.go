@@ -20,6 +20,13 @@ var Upload = &cli.Command{
 	Name:      "upload",
 	Usage:     "Upload a snippet",
 	ArgsUsage: "<id> <file>",
+	Flags: []cli.Flag{
+		&cli.StringFlag{
+			Name:    "language",
+			Aliases: []string{"l"},
+			Usage:   "Language of the snippet",
+		},
+	},
 	Action: func(c *cli.Context) error {
 		conf := LoadConfig()
 		path := conf.Base + "/snippets/" + c.Args().First()
@@ -29,6 +36,10 @@ var Upload = &cli.Command{
 			return err
 		}
 		lang, _ := enry.GetLanguageByContent(c.Args().Get(1), data)
+
+		if c.String("language") != "" {
+			lang = c.String("language")
+		}
 
 		jsonData, err := json.Marshal(uploadSnippet{
 			Language: lang,
